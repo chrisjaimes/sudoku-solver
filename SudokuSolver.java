@@ -20,6 +20,7 @@ public class SudokuSolver {
 			for(int col = 0; col < 9; col++)
 				if(this.sudoku[row][col] == 0)
 					return false;
+
 		return true;
 	}
 
