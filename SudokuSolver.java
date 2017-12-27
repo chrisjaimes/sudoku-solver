@@ -67,7 +67,8 @@ public class SudokuSolver {
 
 	private boolean solve(int row, int col) {
 
-		System.out.println(++calls);
+		//print the current number of calls to this function
+		//System.out.println(++calls);
 
 		if(isFilled()) {
 			return true;
@@ -85,11 +86,11 @@ public class SudokuSolver {
 				if(checkRow(number, row) && checkColumn(number,col) && checkGrid(number, row, col)) {
 					sudoku[row][col] = number;
 
-//					print every time a guess is taken, including final solution
-//					for (int[] r : sudoku)
-//					{
-//					    System.out.println(Arrays.toString(r));
-//					}
+					// print grid every time a guess is taken, including final solution
+					// for (int[] r : sudoku)
+					// {
+					//     System.out.println(Arrays.toString(r));
+					// }
 
 					if(col + 1 > 8) {
 						if(solve(row+1, 0))
@@ -145,14 +146,23 @@ public class SudokuSolver {
 			System.exit(0);
 		}
 
-		ss.solve(0, 0);
-
-		//print out solution
+		System.out.println("Sudoku:");
 		for (int[] r : ss.sudoku)
 		{
-				System.out.println(Arrays.toString(r));
+			System.out.println(Arrays.toString(r));
 		}
 
-	}
+		if(ss.solve(0, 0)) {
 
+			System.out.println("\nSolved!");
+
+			//print out solution
+			for (int[] r : ss.sudoku)
+			{
+				System.out.println(Arrays.toString(r));
+			}
+		} else {
+			System.out.println("\nNo solution :(\nMake sure your Sudoku is solvable.");
+		}
+	}
 }
