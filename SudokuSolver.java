@@ -116,7 +116,7 @@ public class SudokuSolver {
 
 			int number = 0;
 
-			File file = new File("./src/sudoku.txt");
+			File file = new File("./src/input-sudoku.txt");
 			Scanner scanner = new Scanner(file);
 
 			for(int row = 0; row < 9; row++) {
